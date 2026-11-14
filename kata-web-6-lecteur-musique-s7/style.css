@@ -1,0 +1,226 @@
+/* =====================================================
+   Kata web 6 — Lecteur de musique
+   Les couleurs, les polices et l'aspect des boutons sont prêts.
+   À toi la MISE EN PAGE : suis les TODO, en mobile d'abord.
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #181818;
+    color: white;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid yellow;
+    outline-offset: 4px;
+}
+
+/* TODO 2 - EN-TÊTE */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #444;
+}
+
+header h1 {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    color: white;
+    background: transparent;
+    font-size: 1.2rem;
+}
+
+.contenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.en-cours {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.en-cours img {
+    width: 60%;
+    max-width: 180px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.en-cours h2,
+.en-cours p {
+    margin: 0;
+}
+
+.en-cours button {
+    font-size: 1.5rem;
+}
+
+
+.playlist {
+    padding: 1rem;
+}
+
+.playlist h2 {
+    font-size: 1rem;
+}
+
+.piste {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #444;
+}
+
+.piste-infos {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.piste-infos h3,
+.piste-infos p {
+    margin: 0;
+}
+
+.piste-infos h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.piste-infos p {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.piste.active {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #333;
+}
+
+.controles {
+    position: sticky;
+    bottom: 0;
+    padding: 1rem;
+    background-color: #222;
+    border-top: 1px solid #444;
+}
+
+.progression {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.barre {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.boutons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.boutons button {
+    font-size: 1.4rem;
+}
+
+.boutons button:nth-child(2) {
+    font-size: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+
+    .contenu {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .en-cours {
+        flex-grow: 0;
+        flex-basis: 40%;
+    }
+
+    .playlist {
+        flex-grow: 1;
+        min-width: 0;
+    }
+
+    .controles {
+        position: static;
+    }
+
+}
+
+/* QUESTIONS DE RECUL */
+
+/*
+1. Dans .en-cours en colonne, pourquoi align-items: center
+centre-t-il horizontalement, alors qu'en ligne il centre verticalement ?
+
+Quand flex-direction est column, l'axe principal est vertical.
+L'axe secondaire est donc horizontal.
+align-items agit sur l'axe secondaire et centre horizontalement.
+
+Quand flex-direction est row, l'axe secondaire est vertical.
+align-items centre alors verticalement.
+
+
+2. Que se passe-t-il pour la barre de progression si tu retires
+flex-grow ? Et si tu le mets aussi sur les deux temps ?
+
+Sans flex-grow, la barre ne prend plus automatiquement
+tout l'espace disponible.
+
+Si on ajoute flex-grow aux deux temps, l'espace disponible
+est réparti entre les trois éléments selon leurs facteurs
+de croissance. La barre ne sera donc plus la seule à s'étirer.
+
+
+3. Pourquoi commencer par le mobile et ajouter le grand écran
+dans une media query min-width, plutôt que l'inverse ?
+
+C'est le principe du Mobile First.
+
+On commence par adapter le site aux petits écrans,
+puis on ajoute des règles CSS pour les écrans plus grands.
+
+Cela permet d'avoir une base simple, adaptée aux téléphones,
+et d'améliorer progressivement la mise en page.
+*/

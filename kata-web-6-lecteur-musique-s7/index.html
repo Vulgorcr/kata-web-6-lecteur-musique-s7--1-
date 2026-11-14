@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ondes - Lecteur musical</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Ondes</h1>
+        <button aria-label="Ouvrir le menu">☰</button>
+    </header>
+
+    <main class="contenu">
+
+        <section class="en-cours">
+            <img src="pochette.svg"
+                 alt="Pochette de l'album Marée basse">
+
+            <h2>Marée basse</h2>
+            <p>Les Sœurs Lune</p>
+
+            <button aria-label="Ajouter aux favoris">♡</button>
+        </section>
+
+        <section class="playlist">
+            <h2>À SUIVRE</h2>
+
+            <div class="piste active" aria-current="true">
+                <span>1</span>
+                <div class="piste-infos">
+                    <h3>Marée basse</h3>
+                    <p>Les Sœurs Lune</p>
+                </div>
+                <span>3:42</span>
+            </div>
+
+            <div class="piste">
+                <span>2</span>
+                <div class="piste-infos">
+                    <h3>Néons de minuit</h3>
+                    <p>Les Sœurs Lune</p>
+                </div>
+                <span>4:05</span>
+            </div>
+
+            <div class="piste">
+                <span>3</span>
+                <div class="piste-infos">
+                    <h3>Ligne 7</h3>
+                    <p>Les Sœurs Lune</p>
+                </div>
+                <span>2:58</span>
+            </div>
+
+            <div class="piste">
+                <span>4</span>
+                <div class="piste-infos">
+                    <h3>Ce que dit la nuit</h3>
+                    <p>Les Sœurs Lune</p>
+                </div>
+                <span>5:11</span>
+            </div>
+
+            <div class="piste">
+                <span>5</span>
+                <div class="piste-infos">
+                    <h3>Fréquence lunaire</h3>
+                    <p>Les Sœurs Lune</p>
+                </div>
+                <span>3:27</span>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="controles">
+
+        <div class="progression">
+            <span>1:12</span>
+
+            <label for="progression" class="visually-hidden">
+                Progression du morceau
+            </label>
+
+            <input type="range"
+                   id="progression"
+                   class="barre"
+                   min="0"
+                   max="100"
+                   value="32">
+
+            <span>3:42</span>
+        </div>
+
+        <div class="boutons">
+            <button aria-label="Morceau précédent">⏮</button>
+            <button aria-label="Lire">▶</button>
+            <button aria-label="Morceau suivant">⏭</button>
+        </div>
+
+    </footer>
+
+</body>
+</html>
